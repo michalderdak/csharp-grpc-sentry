@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Michal Derdak</Authors>
+    <Company>Michal Derdak</Company>
+    <Description>A gRPC interceptor logging exceptions to the Sentry</Description>
+    <Copyright></Copyright>
+    <PackageLicenseUrl>https://github.com/michalderdak/csharp-grpc-sentry/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/michalderdak/csharp-grpc-sentry</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/michalderdak/csharp-grpc-sentry</RepositoryUrl>
+    <PackageTags>grpc interceptor intercept sentry logging logger log</PackageTags>
+    <PackageIconUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS5lIpI_POK12bWwXMmM_WYj-r4Z4NDb2VcxPxco8WUKUd_jp5</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
