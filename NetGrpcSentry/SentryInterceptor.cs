@@ -9,6 +9,9 @@ using SharpRaven.Data;
 
 namespace NetGrpcSentry
 {
+    /// <summary>
+    /// Interceptor for logging exceptions into the Sentry
+    /// </summary>
     public class SentryInterceptor : Interceptor
     {
         private readonly RavenClient _sentryClient;
