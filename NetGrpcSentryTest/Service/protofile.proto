@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+package NetGrpcSentryTest.Service;
+
+message Request {
+	string message = 1;
+}
+
+message Response {
+	string message = 1;
+}
+
+service TestService {
+	rpc ThrowsRpc(Request) returns (Response) {}
+	rpc ThrowsExcpetion(Request) returns (Response) {}
+}
