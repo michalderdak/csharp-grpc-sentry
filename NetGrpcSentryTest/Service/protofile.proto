@@ -11,6 +11,8 @@ message Response {
 }
 
 service TestService {
-	rpc ThrowsRpc(Request) returns (Response) {}
-	rpc ThrowsExcpetion(Request) returns (Response) {}
+	rpc Unary(Request) returns (Response) {}
+	rpc ServerStream(Request) returns (stream Response) {}
+	rpc ClientStream(stream Request) returns (Response) {}
+	rpc DuplexStream(stream Request) returns (stream Response) {}
 }

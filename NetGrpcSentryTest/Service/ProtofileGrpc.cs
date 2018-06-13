@@ -16,17 +16,31 @@ namespace NetGrpcSentryTest.Service {
     static readonly grpc::Marshaller<global::NetGrpcSentryTest.Service.Request> __Marshaller_Request = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NetGrpcSentryTest.Service.Request.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NetGrpcSentryTest.Service.Response> __Marshaller_Response = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NetGrpcSentryTest.Service.Response.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_ThrowsRpc = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
+    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_Unary = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "ThrowsRpc",
+        "Unary",
         __Marshaller_Request,
         __Marshaller_Response);
 
-    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_ThrowsExcpetion = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
-        grpc::MethodType.Unary,
+    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_ServerStream = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
+        grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "ThrowsExcpetion",
+        "ServerStream",
+        __Marshaller_Request,
+        __Marshaller_Response);
+
+    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_ClientStream = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "ClientStream",
+        __Marshaller_Request,
+        __Marshaller_Response);
+
+    static readonly grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> __Method_DuplexStream = new grpc::Method<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "DuplexStream",
         __Marshaller_Request,
         __Marshaller_Response);
 
@@ -39,12 +53,22 @@ namespace NetGrpcSentryTest.Service {
     /// <summary>Base class for server-side implementations of TestService</summary>
     public abstract partial class TestServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::NetGrpcSentryTest.Service.Response> ThrowsRpc(global::NetGrpcSentryTest.Service.Request request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::NetGrpcSentryTest.Service.Response> Unary(global::NetGrpcSentryTest.Service.Request request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::NetGrpcSentryTest.Service.Response> ThrowsExcpetion(global::NetGrpcSentryTest.Service.Request request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task ServerStream(global::NetGrpcSentryTest.Service.Request request, grpc::IServerStreamWriter<global::NetGrpcSentryTest.Service.Response> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::NetGrpcSentryTest.Service.Response> ClientStream(grpc::IAsyncStreamReader<global::NetGrpcSentryTest.Service.Request> requestStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task DuplexStream(grpc::IAsyncStreamReader<global::NetGrpcSentryTest.Service.Request> requestStream, grpc::IServerStreamWriter<global::NetGrpcSentryTest.Service.Response> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -74,37 +98,45 @@ namespace NetGrpcSentryTest.Service {
       {
       }
 
-      public virtual global::NetGrpcSentryTest.Service.Response ThrowsRpc(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::NetGrpcSentryTest.Service.Response Unary(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return ThrowsRpc(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return Unary(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::NetGrpcSentryTest.Service.Response ThrowsRpc(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
+      public virtual global::NetGrpcSentryTest.Service.Response Unary(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_ThrowsRpc, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Unary, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> ThrowsRpcAsync(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> UnaryAsync(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return ThrowsRpcAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return UnaryAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> ThrowsRpcAsync(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> UnaryAsync(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_ThrowsRpc, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Unary, null, options, request);
       }
-      public virtual global::NetGrpcSentryTest.Service.Response ThrowsExcpetion(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::NetGrpcSentryTest.Service.Response> ServerStream(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return ThrowsExcpetion(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return ServerStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::NetGrpcSentryTest.Service.Response ThrowsExcpetion(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::NetGrpcSentryTest.Service.Response> ServerStream(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_ThrowsExcpetion, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_ServerStream, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> ThrowsExcpetionAsync(global::NetGrpcSentryTest.Service.Request request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncClientStreamingCall<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> ClientStream(grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return ThrowsExcpetionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return ClientStream(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::NetGrpcSentryTest.Service.Response> ThrowsExcpetionAsync(global::NetGrpcSentryTest.Service.Request request, grpc::CallOptions options)
+      public virtual grpc::AsyncClientStreamingCall<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> ClientStream(grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_ThrowsExcpetion, null, options, request);
+        return CallInvoker.AsyncClientStreamingCall(__Method_ClientStream, null, options);
+      }
+      public virtual grpc::AsyncDuplexStreamingCall<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> DuplexStream(grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DuplexStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncDuplexStreamingCall<global::NetGrpcSentryTest.Service.Request, global::NetGrpcSentryTest.Service.Response> DuplexStream(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_DuplexStream, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override TestServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -118,8 +150,10 @@ namespace NetGrpcSentryTest.Service {
     public static grpc::ServerServiceDefinition BindService(TestServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_ThrowsRpc, serviceImpl.ThrowsRpc)
-          .AddMethod(__Method_ThrowsExcpetion, serviceImpl.ThrowsExcpetion).Build();
+          .AddMethod(__Method_Unary, serviceImpl.Unary)
+          .AddMethod(__Method_ServerStream, serviceImpl.ServerStream)
+          .AddMethod(__Method_ClientStream, serviceImpl.ClientStream)
+          .AddMethod(__Method_DuplexStream, serviceImpl.DuplexStream).Build();
     }
 
   }

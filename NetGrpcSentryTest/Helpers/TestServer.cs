@@ -12,7 +12,7 @@ namespace NetGrpcSentryTest.Helpers
 
         public readonly int Port;
 
-        public TestServer(Action<Exception> action)
+        public TestServer()
         {
             Port = PortFinder.FreeTcpPort();
 
@@ -20,9 +20,10 @@ namespace NetGrpcSentryTest.Helpers
             {
                 Services =
                 {
-                    TestService.BindService(new ServiceImp()).Intercept(new SentryInterceptor(action))
+                    TestService.BindService(new ServiceImp())
+                        .Intercept(new SentryInterceptor(Environment.GetEnvironmentVariable("NetGrpcSentry_DSN")))
                 },
-                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
+                Ports = {new ServerPort("localhost", Port, ServerCredentials.Insecure)}
             };
 
             _server.Start();

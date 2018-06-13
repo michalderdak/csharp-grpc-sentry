@@ -26,11 +26,15 @@ namespace NetGrpcSentryTest.Service {
           string.Concat(
             "Cg9wcm90b2ZpbGUucHJvdG8SGU5ldEdycGNTZW50cnlUZXN0LlNlcnZpY2Ui",
             "GgoHUmVxdWVzdBIPCgdtZXNzYWdlGAEgASgJIhsKCFJlc3BvbnNlEg8KB21l",
-            "c3NhZ2UYASABKAkywwEKC1Rlc3RTZXJ2aWNlElYKCVRocm93c1JwYxIiLk5l",
+            "c3NhZ2UYASABKAky+gIKC1Rlc3RTZXJ2aWNlElIKBVVuYXJ5EiIuTmV0R3Jw",
+            "Y1NlbnRyeVRlc3QuU2VydmljZS5SZXF1ZXN0GiMuTmV0R3JwY1NlbnRyeVRl",
+            "c3QuU2VydmljZS5SZXNwb25zZSIAElsKDFNlcnZlclN0cmVhbRIiLk5ldEdy",
+            "cGNTZW50cnlUZXN0LlNlcnZpY2UuUmVxdWVzdBojLk5ldEdycGNTZW50cnlU",
+            "ZXN0LlNlcnZpY2UuUmVzcG9uc2UiADABElsKDENsaWVudFN0cmVhbRIiLk5l",
             "dEdycGNTZW50cnlUZXN0LlNlcnZpY2UuUmVxdWVzdBojLk5ldEdycGNTZW50",
-            "cnlUZXN0LlNlcnZpY2UuUmVzcG9uc2UiABJcCg9UaHJvd3NFeGNwZXRpb24S",
-            "Ii5OZXRHcnBjU2VudHJ5VGVzdC5TZXJ2aWNlLlJlcXVlc3QaIy5OZXRHcnBj",
-            "U2VudHJ5VGVzdC5TZXJ2aWNlLlJlc3BvbnNlIgBiBnByb3RvMw=="));
+            "cnlUZXN0LlNlcnZpY2UuUmVzcG9uc2UiACgBEl0KDER1cGxleFN0cmVhbRIi",
+            "Lk5ldEdycGNTZW50cnlUZXN0LlNlcnZpY2UuUmVxdWVzdBojLk5ldEdycGNT",
+            "ZW50cnlUZXN0LlNlcnZpY2UuUmVzcG9uc2UiACgBMAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
