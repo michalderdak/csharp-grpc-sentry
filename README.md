@@ -1,13 +1,7 @@
 # Sentry logging using gRPC interceptors
-This repository implements [gRPC](https://grpc.io/) inteceptors for logging unwanted exceptions to the [Sentry](https://sentry.io).
+This repository implements [gRPC](https://grpc.io/) inteceptors for logging exceptions to the [Sentry](https://sentry.io).
 
 ## Usage
-
-### Client
-```C#
-var channel = new Channel(hostname, port, ChannelCredentials.Insecure);
-var client = new TestService.TestServiceClient(channel.Intercept(new SentryInterceptor("sentry DSN")));
-```
 
 ### Server
 ```C#
@@ -15,19 +9,18 @@ var server = new Server()
 {
   Services =
   {
-    TestService.BindService(new ServiceImp()).Intercept(new SentryInterceptor(action))
+    TestService.BindService(new ServiceImp()).Intercept(new SentryInterceptor("DSN"))
   },
   Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
 };
 ```
 
-### Own action
-```C#
-var interceptor = new SentryInterceptor(exception =>
-{
-  // DO STUFF
-});
-```
+## Breadcrumbs
+The library sets up continuation task for each call and in case that exception is thrown in the call, the continuation tasks loggs details about the call in form of breadcrumbs.
 
-## LICENSE
+### Example of breadcrumbs in Sentry
+![example](https://github.com/michalderdak/csharp-grpc-sentry/blob/master/example.JPG)
+
+
+## License
 License can be found [here](https://github.com/michalderdak/csharp-grpc-sentry/blob/master/LICENSE)
