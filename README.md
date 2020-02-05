@@ -1,3 +1,5 @@
+# This repository was moved to --> [csharp-grpc-sentry](https://github.com/e-conomic/csharp-grpc-sentry)
+
 # Sentry logging using gRPC interceptors
 This repository implements [gRPC](https://grpc.io/) inteceptors for logging exceptions to the [Sentry](https://sentry.io).
 
